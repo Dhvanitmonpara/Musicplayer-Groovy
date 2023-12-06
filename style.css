@@ -1,0 +1,12 @@
+#verticalNav p{
+  color: white;
+}
+
+.active {
+  background-color: white;
+  color: black;
+}
+
+.activeIn{
+  color: black;
+}
