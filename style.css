@@ -1,12 +1,9 @@
-#verticalNav p{
-  color: white;
-}
-
 .active {
   background-color: white;
-  color: black;
+  /* transition: ease-in 0.1s; */
 }
 
-.activeIn{
+.active p{
   color: black;
+  /* transition: ease-in 0.1s; */
 }

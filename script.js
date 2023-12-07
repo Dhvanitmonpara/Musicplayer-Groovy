@@ -1,30 +1,3 @@
-// document.addEventListener('DOMContentLoaded', function () {
-
-//   const tabSelect = document.querySelectorAll('.navTab');
-//   const tabSwitch = document.querySelectorAll(".tabSelector");
-
-//   tabSelect.forEach(function (item) {
-//     item.addEventListener('click', function () {
-
-//       // Remove 'active' class from all tabs
-//       tabSwitch.forEach(disable => disable.classList.remove('active'));
-
-//       // Identify the clicked tab and activate it
-//       const clickedTabId = item.id;
-//       const clickedTab = document.querySelector(`#${clickedTabId}`);
-//       tabActivate(clickedTab);
-
-//       function tabActivate(tabId) {
-//         tabId.classList.add('active');
-//         console.log('It works');
-//       }
-
-//     });
-//   });
-
-// });
-
-
 document.addEventListener('DOMContentLoaded', function () {
 
   const tabSelect = document.querySelectorAll('.navTab');
@@ -34,30 +7,40 @@ document.addEventListener('DOMContentLoaded', function () {
     item.addEventListener('click', function () {
 
       // Remove 'active' class from all tabs
-      tabSwitch.forEach(disable => disable.classList.remove('active'));
+      tabSwitch.forEach(function(disable) {
+
+        disable.classList.remove('active')
+        disable.classList.add('hover:bg-slate-800')
+
+        const colorSwitchWhite = disable.querySelectorAll('.iconCol')
+        colorSwitchWhite.forEach(function(toggle) {
+          toggle.setAttribute('fill', '#ffffff')
+          console.log(toggle);
+          
+        })
+      });
 
       // Identify the clicked tab and activate it
       const clickedTabId = item.id;
       const clickedTab = document.querySelector(`#${clickedTabId}`);
       tabActivate(clickedTab);
+      // innerTabActivate(clickedTab)
 
       function tabActivate(tabId) {
         tabId.classList.add('active');
-        console.log('It works');
+        tabId.classList.remove('hover:bg-slate-800')
 
-        // Additional actions on elements inside the clicked tab
-        const innerElements = tabId.querySelectorAll('.innerElement');
-        console.log('Inner elements:', innerElements);
+        const activeTab = document.querySelector('.active')
 
-        innerElements.forEach(innerElement => {
-          console.log('Adding class to:', innerElement);
-          innerElement.classList.add('activeIn');
-          innerElement.classList.remove('active'); // Remove any existing 'active' class
-        });
+        const colorSwitchBlack = activeTab.querySelectorAll('.iconCol')
+        colorSwitchBlack.forEach(function(toggle) {
+
+          toggle.setAttribute('fill', '#000000')
+
+        })
+
       }
-
     });
   });
-
 });
 
