@@ -15,9 +15,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const colorSwitchWhite = disable.querySelectorAll('.iconCol')
         colorSwitchWhite.forEach(function(toggle) {
           toggle.setAttribute('fill', '#ffffff')
-          console.log(toggle);
           
         })
+
+        const conHide = document.querySelectorAll('.conSelect')
+        conHide.forEach(Hidden => Hidden.setAttribute('style', 'display: none;'))
+
       });
 
       // Identify the clicked tab and activate it
@@ -42,5 +45,5 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-});
+})
 
