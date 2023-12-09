@@ -15,7 +15,7 @@
     <title>Groovy</title>
     <link
       rel="shortcut icon"
-      href="images/favicon-white.png"
+      href="images/sound-waves.png"
       type="image/x-icon"
       sizes="16x16"
     />
@@ -31,23 +31,23 @@
       href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&family=Lato&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body style="margin: 0; padding: 0">
     <div>
       <nav
-        class="w-14 lg:w-72 h-5/6 flex flex-col fixed invisible sm:visible"
+        class="w-14 lg:w-72 hidden sm:flex flex-col fixed top-0 left-0 z-10 whitespace-nowrap overflow-y-auto overflow-x-hidden"
         id="verticalNav"
-        style="
-          background-color: #00171f;
-          font-family: 'Hedvig Letters Sans', sans-serif;
-          font-family: 'Lato', sans-serif;
-        "
+        style="background-color: #00171f; height: 90vh"
       >
         <div
           class="flex flex-row invisible sm:visible sm:p-5 lg:p-10 space-x-2"
         >
           <img
-            src="images/favicon-white.png"
+            src="images/sound-waves.png"
             alt="Groovy logo"
             class="invisible sm:visible lg:w-7 lg:h-7 lg:mr-1"
           />
@@ -60,7 +60,7 @@
             <!-- con 1 -->
 
             <li
-              class="flex flex-row p-3 lg:pl-5 lg:pr-5 lg:p-2 lg:space-x-2 hover:bg-slate-800 rounded-md navTab tabSelector"
+              class="flex flex-row p-3 lg:pl-5 lg:pr-5 lg:p-2 lg:space-x-3 sm:mt-1 sm:mb-1 hover:bg-slate-800 rounded-md navTab tabSelector"
               id="musicTab"
               onclick="activateCon('homeCon')"
             >
@@ -98,7 +98,7 @@
             <!-- con 2 -->
 
             <li
-              class="flex flex-row p-3 lg:pl-5 lg:pr-5 lg:p-2 lg:space-x-2 hover:bg-slate-800 rounded-md navTab tabSelector"
+              class="flex flex-row p-3 lg:pl-5 lg:pr-5 lg:p-2 lg:space-x-3 sm:mt-1 sm:mb-1 hover:bg-slate-800 rounded-md navTab tabSelector"
               id="searchTab"
               onclick="activateCon('searchCon')"
             >
@@ -136,7 +136,7 @@
             <!-- con 3 -->
 
             <li
-              class="flex flex-row p-3 lg:pl-5 lg:pr-5 lg:p-2 lg:space-x-2 hover:bg-slate-800 rounded-md navTab tabSelector"
+              class="flex flex-row p-3 lg:pl-5 lg:pr-5 lg:p-2 lg:space-x-3 sm:mt-1 sm:mb-1 hover:bg-slate-800 rounded-md navTab tabSelector"
               id="artistsTab"
               onclick="activateCon('artistsCon')"
             >
@@ -188,7 +188,7 @@
             <!-- con 4 -->
 
             <li
-              class="flex flex-row p-3 lg:pl-5 lg:pr-5 lg:p-2 lg:space-x-2 hover:bg-slate-800 rounded-md navTab tabSelector"
+              class="flex flex-row p-3 lg:pl-5 lg:pr-5 lg:p-2 lg:space-x-3 sm:mt-1 sm:mb-1 hover:bg-slate-800 rounded-md navTab tabSelector"
               id="collectionsTab"
               onclick="activateCon('collectionCon')"
             >
@@ -243,7 +243,7 @@
           <div class="pl-2 pr-2 pb-5 pt-4 lg:pl-5 lg:pr-5">
             <ul class="flex flex-col">
               <li
-                class="flex flex-row p-3 lg:pl-5 lg:pr-5 lg:p-2 lg:space-x-2 hover:bg-slate-800 rounded-md navTab tabSelector"
+                class="flex flex-row p-3 lg:pl-5 lg:pr-5 lg:p-2 lg:space-x-3 sm:mt-1 sm:mb-1 hover:bg-slate-800 rounded-md navTab tabSelector"
                 id="favouritesTab"
                 onclick="activateCon('favouritesCon')"
               >
@@ -278,7 +278,7 @@
                 </p>
               </li>
               <li
-                class="flex flex-row p-3 lg:pl-5 lg:pr-5 lg:p-2 lg:space-x-2 hover:bg-slate-800 rounded-md navTab tabSelector"
+                class="flex flex-row p-3 lg:pl-5 lg:pr-5 lg:p-2 lg:space-x-3 sm:mt-1 sm:mb-1 hover:bg-slate-800 rounded-md navTab tabSelector"
                 id="chartsTab"
                 onclick="activateCon('chartsCon')"
               >
@@ -319,15 +319,12 @@
 
       <!-- Explore section -->
 
-      <div>
-        
-      </div>
       <div
         class="h-screen flex flex-col lg:w-4/5"
-        style="background-color: #002233"
+        style="background-color: #042029"
       >
         <div
-          class="pl-14 lg:pl-72 w-full h-screen flex flex-col text-white conSelect"
+          class="m-0 sm:pl-14 lg:pl-72 w-full h-screen flex flex-col text-white conSelect"
           id="homeCon"
           style="display: inline-block"
         >
@@ -368,14 +365,232 @@
         >
           con6
         </div>
-        <div class="h-5/6 w-1/5 none lg:inline-block"
-        style="background-color: #00171F;">
-  
-        </div>
         <div
-          class="w-full h-1/6  flex flex-col text-white fixed"
-          style="margin-top: 83.333335vh; background-color: #00171F; border-top: 1px solid #052b3e"
-        ></div>
+          class="w-1/5 hidden lg:inline-block fixed right-0 top-0 z-10"
+          style="background-color: #00171f; height: 90vh"
+        >
+          <div
+            id="nowPlayingImgCon"
+            class="w-5/5 h-2/5 flex items-center justify-center"
+          >
+            <img
+              class="rounded-xl w-5/6 h-5/6 border-0"
+              id="nowPlayingImg"
+              src="images/starboy.jpg"
+            />
+          </div>
+          <div
+            class="w-5/5 h-3/5 pl-7 pr-7 pb-5 flex justify-center items-center"
+          >
+            <div
+              class="inQueueList flex flex-col rounded-2xl w-full h-full p-2 text-white overflow-y-auto overflow-x-hidden whitespace-nowrap"
+              style="background-color: #042029"
+            >
+              <div class="w-full h-12 text-lg font-semibold p-2">
+                Next in queue
+              </div>
+              <div
+                class="nextInQueueFile w-full h-16 bg-black p-2 flex flex-row mb-1 hover:bg-slate-900"
+              >
+                <img
+                  class="h-12 w-12 rounded-md"
+                  src="images/starboy.jpg"
+                  alt=""
+                />
+                <div class="pl-3 pt-1">
+                  <p class="text-sm">Motherfucking startboy</p>
+                  <p class="text-sm font-light text-gray-300">
+                    Alan walker, Jake Refery, sasha Ali
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- bottom player -->
+
+        <div
+          class="w-full h-24 flex flex-row text-white fixed bottom-0 z-20"
+          style="background-color: #00171f; border-top: 1px solid #052b3e"
+        >
+          <div class="lg:w-72 h-24 lg:p-3">
+            <div class="p-2 flex flex-row">
+              <img
+                class="w-14 h-14 rounded-md"
+                src="images/starboy.jpg"
+                alt=""
+              />
+              <div class="p-2 pl-3 flex flex-nowrap overflow-hidden flex-col">
+                <p class="text-sm">Motherfucking starboy</p>
+                <p
+                  class="font-light text-sm text-gray-300 overflow-hidden whitespace-nowrap"
+                >
+                  Arian daves, chrish harem
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="w-3/5 h-24 flex flex-col">
+            <div
+              class="w-full h-full flex flex-row justify-evenly items-center pt-5"
+            >
+              <div
+                class="flex flex-row h-full w-60 justify-evenly items-center"
+              >
+                <button
+                  class="rounded-full h-8 w-8 flex justify-center items-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    version="1.1"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="16"
+                    height="16"
+                    x="0"
+                    y="0"
+                    viewBox="0 0 515.555 515.555"
+                    style="enable-background: new 0 0 512 512"
+                    xml:space="preserve"
+                    class=""
+                  >
+                    <g>
+                      <path
+                        d="m143.16 194.119 34.301 39.2 42.805-48.918-28.615-32.7A161.054 161.054 0 0 0 70.408 96.665H0v64.444h70.408a96.668 96.668 0 0 1 72.752 33.01z"
+                        fill="#c4c7c7"
+                        opacity="1"
+                        data-original="#000000"
+                        class=""
+                      ></path>
+                      <path
+                        d="M418.89 354.444h-5.963a96.658 96.658 0 0 1-72.752-33.009l-55.704-63.658 55.704-63.658a96.658 96.658 0 0 1 72.752-33.009h5.963v64.444l96.665-96.669-96.665-96.663v64.444h-5.963a161.052 161.052 0 0 0-121.243 55.036L143.159 321.435a96.662 96.662 0 0 1-72.752 33.009H0v64.444h70.408a161.056 161.056 0 0 0 121.243-55.036l50.017-57.16 50.017 57.16a161.054 161.054 0 0 0 121.243 55.036h5.963v64.444l96.665-96.665L418.89 290z"
+                        fill="#c4c7c7"
+                        opacity="1"
+                        data-original="#000000"
+                        class=""
+                      ></path>
+                    </g>
+                  </svg>
+                </button>
+                <button
+                  class="rounded-full h-8 w-8 flex justify-center items-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    version="1.1"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="16"
+                    height="16"
+                    x="0"
+                    y="0"
+                    viewBox="0 0 493.52 493.52"
+                    style="enable-background: new 0 0 512 512"
+                    xml:space="preserve"
+                    class=""
+                  >
+                    <g>
+                      <path
+                        d="M447.126.236c-10.056 0-20.884 4.12-32.148 11.884L140.882 200.952c-17.644 12.152-27.252 28.504-27.252 46.06-.004 17.56 9.78 33.924 27.428 46.076L415.39 481.784c11.284 7.768 22.568 11.736 32.604 11.736h.012c10.76 0 18.916-4.404 25.276-12.972 6.268-8.46 8.688-20.476 8.688-35.012V48.508C481.974 18.74 469.186.236 447.126.236zM53.106.036 39.894 0C25.018 0 11.55 12.112 11.55 26.996v439.42c0 14.884 13.024 27.1 27.908 27.1h.456l12.948-.072c14.88 0 28.092-12.164 28.092-27.048V27.028C80.958 12.144 67.97.036 53.106.036z"
+                        fill="#c4c7c7"
+                        opacity="1"
+                        data-original="#000000"
+                        class=""
+                      ></path>
+                    </g>
+                  </svg>
+                </button>
+                <button
+                  class="bg-white rounded-full h-8 w-8 flex justify-center items-center"
+                  style="padding-left: 1.4px"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    version="1.1"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="16"
+                    height="16"
+                    x="0"
+                    y="0"
+                    viewBox="0 0 512 512"
+                    style="enable-background: new 0 0 512 512"
+                    xml:space="preserve"
+                    class="hovered-paths"
+                  >
+                    <g>
+                      <path
+                        fill-rule="evenodd"
+                        d="M468.8 235.007 67.441 3.277A24.2 24.2 0 0 0 55.354-.008h-.07A24.247 24.247 0 0 0 43.19 3.279a24 24 0 0 0-12.11 20.992v463.456a24.186 24.186 0 0 0 36.36 20.994L468.8 276.99a24.238 24.238 0 0 0 0-41.983z"
+                        fill="#000000"
+                        opacity="1"
+                        data-original="#000000"
+                        class="hovered-path"
+                      ></path>
+                    </g>
+                  </svg></button
+                ><button
+                  class="rounded-full h-8 w-8 flex justify-center items-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    version="1.1"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="16"
+                    height="16"
+                    x="0"
+                    y="0"
+                    viewBox="0 0 493.796 493.796"
+                    style="enable-background: new 0 0 512 512"
+                    xml:space="preserve"
+                    class=""
+                  >
+                    <g>
+                      <path
+                        d="M355.938 200.956 81.414 12.128C70.134 4.352 58.402.248 48.358.248c-22.052 0-36.672 18.496-36.672 48.26v397.036c0 14.54 4.228 26.688 10.496 35.144 6.364 8.572 16.32 13.108 27.076 13.108 10.04 0 21.308-4.112 32.584-11.876l274.276-188.828c17.632-12.152 27.3-28.508 27.296-46.076 0-17.56-9.82-33.916-27.476-46.06zM456.446 493.672l-.293-.004c-.048 0-.095.004-.143.004h.436zM455.638 0 444.29.032c-14.86 0-27.724 12.112-27.724 26.992v439.368c0 14.896 12.652 27.124 27.532 27.124l12.055.152c14.805-.079 25.957-12.412 25.957-27.252V26.996C482.11 12.116 470.51 0 455.638 0z"
+                        fill="#c4c7c7"
+                        opacity="1"
+                        data-original="#000000"
+                        class=""
+                      ></path>
+                    </g>
+                  </svg></button
+                ><button
+                  class="rounded-full h-8 w-8 flex justify-center items-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    version="1.1"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="16"
+                    height="16"
+                    x="0"
+                    y="0"
+                    viewBox="0 0 512 512"
+                    style="enable-background: new 0 0 512 512"
+                    xml:space="preserve"
+                    class="hovered-paths"
+                  >
+                    <g>
+                      <path
+                        d="M512 256v86.712c0 57.787-47.014 104.8-104.801 104.8H109.254l9.861 9.861c12.497 12.496 12.497 32.758 0 45.255-6.248 6.247-14.439 9.372-22.627 9.372-8.19 0-16.378-3.123-22.627-9.373L9.373 438.139a31.997 31.997 0 0 1 0-45.255l64.488-64.487c12.497-12.496 32.758-12.497 45.255.001 12.497 12.496 12.497 32.758 0 45.255l-9.86 9.859H407.2c22.498 0 40.801-18.303 40.801-40.8V256c0-17.673 14.327-32 32-32S512 238.327 512 256zM32 288c17.673 0 32-14.327 32-32v-86.712c0-22.497 18.303-40.8 40.801-40.8h297.945l-9.861 9.861c-12.497 12.497-12.497 32.758 0 45.255 6.249 6.249 14.438 9.373 22.627 9.373s16.379-3.124 22.627-9.373l64.488-64.488c12.497-12.497 12.497-32.758 0-45.255L438.14 9.373c-12.497-12.497-32.758-12.497-45.255 0s-12.497 32.758 0 45.255l9.86 9.86H104.801C47.014 64.488 0 111.501 0 169.288V256c0 17.673 14.327 32 32 32z"
+                        fill="#c4c7c7"
+                        opacity="1"
+                        data-original="#000000"
+                        class="hovered-path"
+                      ></path>
+                    </g>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div
+              class="w-full h-20 flex flex-row gap-2 pb-3 justify-center items-center"
+            >
+              <div class="text-xs text-gray-500">1:10</div>
+              <div class="bg-gray-600 w-6/12 h-1.5"></div>
+              <div class="text-xs text-gray-500">2:56</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
