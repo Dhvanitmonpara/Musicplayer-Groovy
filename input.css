@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
+
+.playFromInQueueBtn {
+    background-color: black 2;
+    opacity: 23%;
+}
+
 @tailwind utilities;

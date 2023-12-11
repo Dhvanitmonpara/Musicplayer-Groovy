@@ -39,4 +39,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  const miniWin = document.querySelector("#miniPlayerWindow");
+  const queuedSong = miniWin.querySelectorAll(".queuedFile");
+  console.log(queuedSong);
+  queuedSong.forEach((queuedSongElem) => {
+    queuedSongElem.addEventListener("click", (elem) => {
+      const nextSong = elem.querySelector(".playFromInQueueBtn");
+      nextSong.classList.add('absolute')
+    });
+  });
 });

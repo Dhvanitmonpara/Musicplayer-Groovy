@@ -60,7 +60,7 @@
             <!-- con 1 -->
 
             <li
-              class="flex flex-row p-3 lg:pl-5 lg:pr-5 lg:p-2 lg:space-x-3 sm:mt-1 sm:mb-1 hover:bg-slate-800 rounded-md navTab tabSelector"
+              class="flex flex-row p-3 lg:pl-5 lg:pr-5 lg:p-2 lg:space-x-3 sm:mt-1 sm:mb-1 rounded-md navTab tabSelector active"
               id="musicTab"
               onclick="activateCon('homeCon')"
             >
@@ -81,7 +81,7 @@
                   <path
                     class="musicIcon iconCol"
                     d="M328.712 264.539c12.928-21.632 21.504-48.992 23.168-76.064 1.056-17.376-2.816-35.616-11.2-52.768-13.152-26.944-35.744-42.08-57.568-56.704-16.288-10.912-31.68-21.216-42.56-35.936l-1.952-2.624c-6.432-8.64-13.696-18.432-14.848-26.656-1.152-8.32-8.704-14.24-16.96-13.76a15.957 15.957 0 0 0-14.88 15.936v285.12c-13.408-8.128-29.92-13.12-48-13.12-44.096 0-80 28.704-80 64s35.904 64 80 64 80-28.704 80-64V165.467c24.032 9.184 63.36 32.576 74.176 87.2-2.016 2.976-3.936 6.176-6.176 8.736-5.856 6.624-5.216 16.736 1.44 22.56 6.592 5.888 16.704 5.184 22.56-1.44 4.288-4.864 8.096-10.56 11.744-16.512.384-.448.737-.928 1.056-1.472z"
-                    fill="#ffffff"
+                    fill="#000000"
                     opacity="1"
                     data-original="#000000"
                   ></path>
@@ -320,7 +320,7 @@
       <!-- Explore section -->
 
       <div
-        class="h-screen flex flex-col lg:w-4/5"
+        class="h-screen flex flex-col xl:w-4/5"
         style="background-color: #042029"
       >
         <div
@@ -365,8 +365,12 @@
         >
           con6
         </div>
+
+        <!-- mini player  -->
+
         <div
-          class="w-1/5 hidden lg:inline-block fixed right-0 top-0 z-10"
+          class="w-1/5 hidden xl:inline-block fixed right-0 top-0 z-10"
+          id="miniPlayerWindow"
           style="background-color: #00171f; height: 90vh"
         >
           <div
@@ -383,20 +387,23 @@
             class="w-5/5 h-3/5 pl-7 pr-7 pb-5 flex justify-center items-center"
           >
             <div
-              class="inQueueList flex flex-col rounded-2xl w-full h-full p-2 text-white overflow-y-auto overflow-x-hidden whitespace-nowrap"
+              class="flex flex-col rounded-2xl w-full h-full p-2 text-white overflow-y-auto overflow-x-hidden whitespace-nowrap"
               style="background-color: #042029"
             >
               <div class="w-full h-12 text-lg font-semibold p-2">
                 Next in queue
               </div>
               <div
-                class="nextInQueueFile w-full h-16 bg-black p-2 flex flex-row mb-1 hover:bg-slate-900"
+                class="queuedFile w-full h-16 bg-black p-2 flex flex-row mb-1 hover:bg-slate-900"
               >
                 <img
                   class="h-12 w-12 rounded-md"
                   src="images/starboy.jpg"
                   alt=""
                 />
+                <div
+                  class="hidden hover:absolute playFromInQueueBtn h-12 w-12"
+                ></div>
                 <div class="pl-3 pt-1">
                   <p class="text-sm">Motherfucking startboy</p>
                   <p class="text-sm font-light text-gray-300">
@@ -590,6 +597,64 @@
               <div class="text-xs text-gray-500">2:56</div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Minimal player  -->
+
+    <div class="minimalPlayer w-screen h-screen right-0 top-0 hidden lg:inline-block absolute z-50">
+      <div class="w-full bg-blue-200 h-1/6 flex flex-row px-4 lg:px-16 pt-7">
+        <div class="w-8/12 xl:w-9/12 2xl:w-5/6 h-auto flex flex-row">
+          <button class="h-10 w-10 rounded-full bg-black opacity-70 flex justify-center items-center hover:opacity-80" onclick="onBackFromMiniPlayer(this)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="20"
+              height="20"
+              x="0"
+              y="0"
+              viewBox="0 0 447.243 447.243"
+              style="enable-background: new 0 0 512 512"
+              xml:space="preserve"
+              class=""
+            >
+              <g>
+                <path
+                  d="M420.361 192.229a31.967 31.967 0 0 0-5.535-.41H99.305l6.88-3.2a63.998 63.998 0 0 0 18.08-12.8l88.48-88.48c11.653-11.124 13.611-29.019 4.64-42.4-10.441-14.259-30.464-17.355-44.724-6.914a32.018 32.018 0 0 0-3.276 2.754l-160 160c-12.504 12.49-12.515 32.751-.025 45.255l.025.025 160 160c12.514 12.479 32.775 12.451 45.255-.063a32.084 32.084 0 0 0 2.745-3.137c8.971-13.381 7.013-31.276-4.64-42.4l-88.32-88.64a64.002 64.002 0 0 0-16-11.68l-9.6-4.32h314.24c16.347.607 30.689-10.812 33.76-26.88 2.829-17.445-9.019-33.88-26.464-36.71z"
+                  fill="#ffffff"
+                  opacity="1"
+                  data-original="#000000"
+                  class=""
+                ></path>
+              </g>
+            </svg>
+          </button>
+          <p class="nowPlayingTitle h-10 w-7/12 pl-3 font-medium text-xl flex justify-start items-center">
+            Motherfucking starboy
+          </p>
+        </div>
+        <div class="flex flex-row justify-center w-4/12 xl:w-3/12 2xl:w-1/6">
+          <div class="flex flex-row justify-evenly h-auto w-64">
+            <button class="h-10 w-28 bg-black opacity-70 rounded-full text-white font-bold hover:opacity-80" onclick="onCardClick(this)">
+              Card
+            </button>
+            <button class="h-10 w-28 bg-black opacity-70 rounded-full text-white font-bold hover:opacity-80" onclick="onLyricsClick(this)">
+              Lyrics
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="w-full bg-blue-200 h-5/6 flex justify-center">
+        <div class="onlyCard hidden h-5/6 w-4/6">
+
+        </div>
+        <div class="onlyLyric hidden h-5/6 w-4/6">
+
+        </div>
+        <div class="bothCardAndLyric hidden h-5/6 w-4/6">
+
         </div>
       </div>
     </div>
