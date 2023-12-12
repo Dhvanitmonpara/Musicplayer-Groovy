@@ -46,7 +46,72 @@ document.addEventListener("DOMContentLoaded", function () {
   queuedSong.forEach((queuedSongElem) => {
     queuedSongElem.addEventListener("click", (elem) => {
       const nextSong = elem.querySelector(".playFromInQueueBtn");
-      nextSong.classList.add('absolute')
+      nextSong.classList.add("absolute");
     });
   });
+
+  const minimalPlayer = document.querySelector("#minimalPlayerPage");
+
+  const goToMiniPlayer = document.querySelector("#goToMiniPlayer");
+  goToMiniPlayer.addEventListener("click", () => {
+    minimalPlayer.classList.add("lg:inline-block");
+  });
+
+  const backFromMiniPlayer = document.querySelector("#backFromMiniPlayer");
+  backFromMiniPlayer.addEventListener("click", () => {
+    minimalPlayer.classList.remove("lg:inline-block");
+  });
+
+  const fadeMinimal = document.querySelectorAll(".fadeMinimal");
+  const headerFader = document.querySelectorAll(".headerFader");
+
+  minimalPlayer.addEventListener("click", () => {
+    const headerOfMinimal = document.querySelector("#minimalPlayerHeader");
+    headerOfMinimal.classList.add("lg:visible");
+    fadeMinimal.forEach((elem) => {
+      elem.classList.add("activeHeaderMini");
+      elem.classList.remove("inactiveHeaderMini");
+      // headerfaderRun(headerOfMinimal)
+    });
+});
+// function headerfaderRun(header) {
+//   header.classList.remove("lg:visible");
+// fadeMinimal.forEach((elem) => {
+// elem.classList.remove("activeHeaderMini");
+// elem.classList.add("inactiveHeaderMini");
+// })
+
+  const cardBtn = document.querySelector("#cardBtn");
+  const lyricBtn = document.querySelector("#lyricBtn");
+
+  cardBtn.addEventListener("click", () => {
+    cardBtn.classList.toggle("activeMini");
+    checkIfActivatedMiniplayer;
+  });
+
+  lyricBtn.addEventListener("click", () => {
+    lyricBtn.classList.toggle("activeMini");
+    checkIfActivatedMiniplayer;
+  });
+
+  function checkIfActivatedMiniplayer() {
+    if (
+      cardBtn.classList.contains("activeMini") &&
+      !lyricBtn.classList.contains("activeMini")
+    ) {
+      // code here
+    } else if (
+      !cardBtn.classList.contains("ativeMini") &&
+      lyricBtn.classList.contains("activeMini")
+    ) {
+      // code here
+    } else if (
+      cardBtn.classList.contains("activeMini") &&
+      lyricBtn.classList.contains("activeMini")
+    ) {
+      // code here
+    } else {
+      // code here
+    }
+  }
 });

@@ -2,8 +2,37 @@
 @tailwind components;
 
 .playFromInQueueBtn {
-    background-color: black 2;
-    opacity: 23%;
+  background-color: black 2;
+  opacity: 23%;
 }
 
 @tailwind utilities;
+
+#backFromMiniPlayer {
+  transition: all 0.4s ease;
+}
+
+#backFromMiniPlayer:active {
+  transform: scale(0.9);
+}
+
+#goToMiniPlayer {
+  transition: all 0.4s ease;
+}
+
+#goToMiniPlayer:active {
+  transform: scale(0.8);
+}
+
+.inactiveHeaderMini {
+  transition: all ease 0.4s;
+}
+
+.activeHeaderMini {
+  transform: translate(ease-in);
+}
+
+.activeMini {
+  background-color: white;
+  color: black;
+}
