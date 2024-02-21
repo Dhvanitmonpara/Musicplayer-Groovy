@@ -44,74 +44,89 @@ document.addEventListener("DOMContentLoaded", function () {
   const queuedSong = miniWin.querySelectorAll(".queuedFile");
   console.log(queuedSong);
   queuedSong.forEach((queuedSongElem) => {
-    queuedSongElem.addEventListener("click", (elem) => {
-      const nextSong = elem.querySelector(".playFromInQueueBtn");
+    queuedSongElem.addEventListener("click", () => {
+      const nextSong = queuedSongElem.querySelector(".playFromInQueueBtn");
+      console.log(nextSong);
       nextSong.classList.add("absolute");
     });
   });
-
-  const minimalPlayer = document.querySelector("#minimalPlayerPage");
-
-  const goToMiniPlayer = document.querySelector("#goToMiniPlayer");
-  goToMiniPlayer.addEventListener("click", () => {
-    minimalPlayer.classList.add("lg:inline-block");
-  });
-
-  const backFromMiniPlayer = document.querySelector("#backFromMiniPlayer");
-  backFromMiniPlayer.addEventListener("click", () => {
-    minimalPlayer.classList.remove("lg:inline-block");
-  });
-
-  const fadeMinimal = document.querySelectorAll(".fadeMinimal");
-  const headerFader = document.querySelectorAll(".headerFader");
-
-  minimalPlayer.addEventListener("click", () => {
-    const headerOfMinimal = document.querySelector("#minimalPlayerHeader");
-    headerOfMinimal.classList.add("lg:visible");
-    fadeMinimal.forEach((elem) => {
-      elem.classList.add("activeHeaderMini");
-      elem.classList.remove("inactiveHeaderMini");
-      // headerfaderRun(headerOfMinimal)
-    });
-});
-// function headerfaderRun(header) {
-//   header.classList.remove("lg:visible");
-// fadeMinimal.forEach((elem) => {
-// elem.classList.remove("activeHeaderMini");
-// elem.classList.add("inactiveHeaderMini");
-// })
 
   const cardBtn = document.querySelector("#cardBtn");
   const lyricBtn = document.querySelector("#lyricBtn");
 
   cardBtn.addEventListener("click", () => {
     cardBtn.classList.toggle("activeMini");
-    checkIfActivatedMiniplayer;
+    cardBtn.classList.toggle("inactiveMini");
+    checkIfActivatedMiniplayer();
   });
 
   lyricBtn.addEventListener("click", () => {
     lyricBtn.classList.toggle("activeMini");
-    checkIfActivatedMiniplayer;
+    lyricBtn.classList.toggle("inactiveMini");
+    checkIfActivatedMiniplayer();
   });
+
+  const onlyCard = document.querySelector("#onlyCard");
+  const onlyLyric = document.querySelector("#onlyLyric");
+  const bothCardAndLyric = document.querySelector("#bothCardAndLyric");
+  const groovyMinimal = document.querySelector("#groovyMinimal");
 
   function checkIfActivatedMiniplayer() {
     if (
       cardBtn.classList.contains("activeMini") &&
       !lyricBtn.classList.contains("activeMini")
     ) {
-      // code here
+      groovyMinimal.classList.remove("lg:flex");
+      onlyCard.classList.add("lg:flex");
+      onlyLyric.classList.remove("lg:flex");
+      bothCardAndLyric.classList.remove("lg:flex");
     } else if (
-      !cardBtn.classList.contains("ativeMini") &&
+      !cardBtn.classList.contains("activeMini") &&
       lyricBtn.classList.contains("activeMini")
     ) {
-      // code here
+      onlyLyric.classList.add("lg:flex");
+      groovyMinimal.classList.remove("lg:flex");
+      onlyCard.classList.remove("lg:flex");
+      bothCardAndLyric.classList.remove("lg:flex");
     } else if (
       cardBtn.classList.contains("activeMini") &&
       lyricBtn.classList.contains("activeMini")
     ) {
-      // code here
+      bothCardAndLyric.classList.add("lg:flex");
+      groovyMinimal.classList.remove("lg:flex");
+      onlyLyric.classList.remove("lg:flex");
+      onlyCard.classList.remove("lg:flex");
     } else {
-      // code here
+      groovyMinimal.classList.add("lg:flex");
+      onlyCard.classList.remove("lg:flex");
+      onlyLyric.classList.remove("lg:flex");
+      bothCardAndLyric.classList.remove("lg:flex");
     }
   }
 });
+
+const minimalPlayer = document.querySelector("#minimalPlayerPage");
+const fadeMinimal = document.querySelectorAll(".fadeMinimal");
+const bodyOfMinimal = document.querySelectorAll("#bodyOfMinimal");
+const visibilityToggleMinimalBtn = document.querySelector(
+  "#visibilityToggleMinimalBtn"
+);
+
+const goToMiniPlayer = document.querySelector("#goToMiniPlayer");
+goToMiniPlayer.addEventListener("click", () => {
+  minimalPlayer.classList.add("lg:inline-block");
+});
+
+const backFromMiniPlayer = document.querySelector("#backFromMiniPlayer");
+backFromMiniPlayer.addEventListener("click", () => {
+  minimalPlayer.classList.remove("lg:inline-block");
+});
+
+visibilityToggleMinimalBtn.addEventListener("click", minimalHeaderToggler);
+
+function minimalHeaderToggler() {
+  fadeMinimal.forEach((elem) => {
+    elem.classList.toggle("activeHeaderMini");
+    elem.classList.toggle("inactiveHeaderMini");
+  });
+}

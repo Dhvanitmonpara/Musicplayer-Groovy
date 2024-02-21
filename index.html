@@ -21,7 +21,6 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="input.css" />
-    <link rel="stylesheet" href="style.css" />
 
     <!-- font -->
 
@@ -37,7 +36,7 @@
     />
   </head>
   <body style="margin: 0; padding: 0">
-    <div>
+    <div id="main">
       <nav
         class="w-14 lg:w-72 hidden sm:flex flex-col fixed top-0 left-0 z-10 whitespace-nowrap overflow-y-auto overflow-x-hidden"
         id="verticalNav"
@@ -88,7 +87,7 @@
                 </g>
               </svg>
               <p
-                class="hidden text-white lg:inline-block text-base cursor-default navTab tabSelector"
+                class="hidden text-white lg:inline-block text-base navTab tabSelector"
                 id="musicATab"
               >
                 Music
@@ -126,7 +125,7 @@
                 </g>
               </svg>
               <p
-                class="text-white hidden lg:inline-block text-base cursor-default navTab"
+                class="text-white hidden lg:inline-block text-base navTab"
                 id="searchATab"
               >
                 Search
@@ -178,7 +177,7 @@
                 </g>
               </svg>
               <p
-                class="text-white hidden lg:inline-block text-base cursor-default navTab"
+                class="text-white hidden lg:inline-block text-base navTab"
                 id="artistsATab"
               >
                 Artists
@@ -223,7 +222,7 @@
                 </g>
               </svg>
               <p
-                class="text-white hidden lg:inline-block text-base cursor-default navTab"
+                class="text-white hidden lg:inline-block text-base navTab"
                 id="collectionsATab"
               >
                 Collections
@@ -271,7 +270,7 @@
                   </g>
                 </svg>
                 <p
-                  class="text-white hidden lg:inline-block text-base cursor-default navTab"
+                  class="text-white hidden lg:inline-block text-base navTab"
                   id="favouritesATab"
                 >
                   Favourites
@@ -306,7 +305,7 @@
                   </g>
                 </svg>
                 <p
-                  class="text-white hidden lg:inline-block text-base cursor-default navTab"
+                  class="text-white hidden lg:inline-block text-base navTab"
                   id="chartsATab"
                 >
                   Charts
@@ -402,7 +401,7 @@
                   alt=""
                 />
                 <div
-                  class="hidden hover:absolute playFromInQueueBtn h-12 w-12"
+                  class="hidden hover:inline-block top-0 right-0 playFromInQueueBtn h-12 w-12 bg-white"
                 ></div>
                 <div class="pl-3 pt-1">
                   <p class="text-sm">Motherfucking startboy</p>
@@ -445,7 +444,7 @@
               <div
                 class="flex flex-row h-full w-60 justify-evenly items-center"
               >
-                <button
+                <button id="OnSuffleSong"
                   class="rounded-full h-8 w-8 flex justify-center items-center"
                 >
                   <svg
@@ -479,7 +478,7 @@
                     </g>
                   </svg>
                 </button>
-                <button
+                <button id="goToPreviousSong"
                   class="rounded-full h-8 w-8 flex justify-center items-center"
                 >
                   <svg
@@ -506,7 +505,7 @@
                     </g>
                   </svg>
                 </button>
-                <button
+                <button id="playPauseSong"
                   class="bg-white rounded-full h-8 w-8 flex justify-center items-center"
                   style="padding-left: 1.4px"
                 >
@@ -534,7 +533,7 @@
                       ></path>
                     </g>
                   </svg></button
-                ><button
+                ><button id="goToNextSong"
                   class="rounded-full h-8 w-8 flex justify-center items-center"
                 >
                   <svg
@@ -560,7 +559,7 @@
                       ></path>
                     </g>
                   </svg></button
-                ><button
+                ><button id="OnRepeatMusic"
                   class="rounded-full h-8 w-8 flex justify-center items-center"
                 >
                   <svg
@@ -626,7 +625,7 @@
                     ></path>
                   </g>
                 </svg></button
-              ><button class="h-10 w-10 flex justify-center items-center">
+              ><button id="OnMiniPlayerSidebar" class="h-10 w-10 flex justify-center items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   version="1.1"
@@ -669,17 +668,18 @@
 
     <div
       id="minimalPlayerPage"
-      class="w-screen h-screen right-0 top-0 hidden absolute z-50 bg-blue-200"
-    >
+      class="w-screen h-screen hidden right-0 top-0 absolute z-50"
+    ><div class="w-full h-full bg-white bg-opacity-80">
+
       <div
-        id="minimalPlayerHeader"
-        class="headerFader w-full h-1/6 invisible flex flex-row px-4 lg:px-16 pt-7"
+      id="minimalPlayerHeader"
+      class="w-full h-1/6 flex flex-row px-4 lg:px-16 pt-7"
       >
-        <div class="headerFader w-8/12 xl:w-9/12 2xl:w-5/6 h-auto flex flex-row">
-          <button
-            id="backFromMiniPlayer"
-            class="fadeMinimal h-10 w-10 rounded-full bg-black opacity-70 flex justify-center items-center hover:opacity-80"
-          >
+      <div class="w-8/12 xl:w-9/12 h-auto flex flex-row">
+        <button
+        id="backFromMiniPlayer"
+        class="activeHeaderMini fadeMinimal h-10 w-10 rounded-full bg-black flex justify-center items-center hover:opacity-80"
+        >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               version="1.1"
@@ -705,37 +705,116 @@
             </svg>
           </button>
           <p
-            class="fadeMinimal nowPlayingTitle h-10 w-7/12 pl-3 font-medium text-xl flex justify-start items-center"
+            class="activeHeaderMini fadeMinimal nowPlayingTitle h-10 w-7/12 pl-3 font-medium text-xl flex justify-start items-center"
           >
             Motherfucking starboy
           </p>
         </div>
-        <div class="headerFader flex flex-row justify-center w-4/12 xl:w-3/12 2xl:w-1/6">
-          <div class="headerFader flex flex-row justify-evenly h-auto w-64">
+        <div class="flex flex-row justify-center w-4/12 xl:w-3/12">
+          <div class="flex flex-row justify-evenly h-auto w-80">
             </button>
             <button
               id="cardBtn"
-              class="fadeMinimal h-10 w-28 bg-black opacity-70 rounded-full text-white font-bold hover:opacity-80"
+              class="activeHeaderMini fadeMinimal h-10 w-28 rounded-full font-bold hover:opacity-80 activeMini"
             >
               Card
             </button>
             <button
               id="lyricBtn"
-              class="fadeMinimal h-10 w-28 bg-black opacity-70 rounded-full text-white font-bold hover:opacity-80"
+              class="activeHeaderMini fadeMinimal h-10 w-28 rounded-full font-bold hover:opacity-80 inactiveMini"
             >
               Lyrics
+            </button>
+            <button id="visibilityToggleMinimalBtn" class="h-10 w-10 flex justify-center items-center rounded-full bg-black opacity-100 hover:opacity-80">
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 32 32" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M13 16c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zM13 26c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3zM13 6c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3-3 1.346-3 3z" fill="#ffffff" opacity="1" data-original="#000000"></path></g></svg>
             </button>
           </div>
         </div>
       </div>
-      <div class="headerFader w-full h-5/6 flex justify-center">
-        <div id="onlyCard" class="headerFader hidden h-5/6 w-4/6 bg-amber-900"></div>
-        <div id="onlyLyric" class="headerFader hidden h-5/6 w-4/6 bg-black"></div>
-        <div id="bothCardAndLyric " class="headerFader hidden h-5/6 w-4/6 bg-green-500"></div>
+      <div id="bodyOfMinimal" class="w-full h-5/6 flex justify-center">
+        <div id="onlyCard" class="hidden flex-row lg:flex h-5/6 w-4/6">
+          <div class="w-1/2 h-full flex justify-end items-center">
+            <div class="w-72 h-72 xl:w-80 xl:h-80 2xl:w-96 2xl:h-96">
+              <img class="rounded-sm bg-cover" src="images/starboy.jpg" alt="">
+            </div>
+          </div>
+          <div class="w-1/2 h-full flex flex-col gap-2 justify-center p-7">
+            <p class="">NOW PLAYING</p>
+            <h2 class="text-2xl xl:text-3xl font-bold">Motherfucking starboy
+            </h2>
+            <p class="whitespace-nowrap overflow-hidden">Ariana Garold, Sasha Kali, James Mackron</p>
+          </div>
+        </div>
+        <div id="onlyLyric" class="hidden h-5/6 w-4/6"> 
+          <span id="LyricsInMini" class="p-10 text-2xl font-extrabold h-full w-full overflow-x-hidden overflow-y-auto leading-loose">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+
+          Ipsa eligendi ab id architecto minus necessitatibus nostrum veritatis, 
+
+          magnam voluptas inventore consequatur, ea ullam quia quam nesciunt illum. Vitae, est odio!
+
+          Corporis modi cupiditate eum tempora animi sunt magni eligendi unde alias nobis, obcaecati ullam. Similique voluptatum iusto facilis eos.
+
+          Repellendus assumenda quo perferendis quas eligendi praesentium eum optio atque in!
+          Eveniet expedita quis est aspernatur repellendus sint quasi laborum, eos, d
+          eleniti, ducimus magnam? Totam dolores magnam, distinctio officiis tempore amet enim eum, quae eos illum incidunt, ipsum explicabo
+           aspernatur provident.
+          Amet cumque, unde blanditiis aut natus numquam temporibus quod soluta voluptates modi 
+          adipisci reiciendis, maxime corporis assumenda perspiciatis culpa consequuntur ad quae animi inventore magni ea hic! Facilis, voluptates quis!
+          Quia soluta aut voluptatum temporibus non, sapiente ex labore 
+          odio laudantium fuga sint consectetur a recusandae repudiandae quibusdam magnam mollitia optio nulla accusamus consequuntur eos in eum ipsam? Doloribus, quos.
+          Dolore modi obcaecati sapiente harum cumque, incidunt quas molestias quaerat et eligendi soluta vitae molestiae corrupti minus 
+          voluptatem labore illo. Voluptas aut est nulla minus eaque iste sequi, sit dolorem?
+          Illo, omnis magnam officia, hic expedita necessitatibus, error ullam in delectus reiciendis mollitia ipsum iusto ex vero corporis amet 
+          voluptatibus. Reiciendis nihil enim error ab eum. Doloremque quia consectetur et!
+          Hic, placeat? Dolorum nulla tenetur, maiores dolore quas nemo, eveniet corporis, dolores eum odio fugiat magnam 
+          obcaecati natus quia aliquid et sapiente. Quidem veritatis dolores excepturi. Mollitia id architecto sint!
+          Temporibus suscipit, maxime vel, sed sapiente fuga blanditiis voluptatem asperiores molestias enim nesciunt, debitis illo 
+          voluptatum quibusdam iure! Labore et placeat dignissimos fugiat qui dolorem mollitia quidem error sunt eius!
+          Laudantium quibusdam vero nihil, sit culpa obcaecati itaque et consequuntur odit aspernatur at molestiae quas commodi maxime impedit unde 
+          nesciunt debitis pariatur quos animi! Quae maxime quaerat laudantium qui sed.
+        </span>
+        </div>
+        <div id="bothCardAndLyric" class="hidden flex-row mt-16 h-4/6 w-3/6">
+          <div id="cardWithLyric" class="w-1/2 h-full flex justify-center items-center">
+            <img src="images/starboy.jpg" class="bg-cover h-full w-full" alt="">
+          </div>
+          <div id="detailsOfTheCardWithLyric" class="w-1/2 h-full flex flex-col text-white bg-black opacity-90">
+            <div class="w-1/2 h-full flex flex-col gap-2 justify-center p-7">
+              <p class="">NOW PLAYING</p>
+              <h2 class="text-2xl xl:text-3xl font-bold whitespace-nowrap">Motherfucking starboy
+              </h2>
+              <p class="whitespace-nowrap overflow-hidden">Ariana Garold, Sasha Kali, James Mackron</p>
+            </div>
+            <div id="lyricWithCard" class="p-5">
+              <span class="w-full h-full font-semibold text-lg overflow-x-hidden overflow-y-auto">
+
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                
+                Ipsa eligendi ab id architecto minus necessitatibus nostrum veritatis, 
+                
+                magnam voluptas inventore consequatur, ea ullam quia quam nesciunt illum. Vitae, est odio!
+                
+          Corporis modi cupiditate eum tempora animi sunt magni eligendi unde alias nobis, obcaecati ullam. Similique voluptatum iusto facilis eos.
+
+          Repellendus assumenda quo perferendis quas eligendi praesentium eum optio atque in!
+          Eveniet expedita quis est aspernatur repellendus sint quasi laborum, eos, d
+          eleniti, ducimus magnam? Totam dolores magnam, distinctio officiis tempore amet enim eum, quae eos illum incidunt, ipsum explicabo
+           aspernatur provident.
+           Amet cumque, unde blanditiis aut natus numquam temporibus quod soluta voluptates modi 
+           adipisci reiciendis, maxime corporis assumenda perspiciatis culpa consequuntur ad quae animi inventore magni ea hic! Facilis, voluptates quis!
+           Quia soluta aut voluptatum temporibus non, sapiente ex labore F
+             </span>
+            </div>
+          </div>
+        </div>
+        <div id="groovyMinimal" class="hidden h-5/6 w-4/6 bg-blue-950">Groovy</div>
       </div>
+    </div>
     </div>
 
     <!-- js  -->
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js" integrity="sha512-7Au1ULjlT8PP1Ygs6mDZh9NuQD0A5prSrAUiPHMXpU6g3UMd8qesVnhug5X4RoDr35x5upNpx0A6Sisz1LSTXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </body>
 </html>

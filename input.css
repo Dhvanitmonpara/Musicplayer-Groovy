@@ -1,15 +1,71 @@
 @tailwind base;
 @tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.active {
+  background-color: white;
+  transition: all 0.4s ease;
+}
+
+.active p {
+  color: black;
+  /* transition: ease-in 0.1s; */
+}
+
+.verticalNav p {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.verticalNav::-webkit-scrollbar {
+  display: none;
+}
+
+.inQueueList::-webkit-scrollbar {
+  display: none;
+}
+
+.inQueueList::-moz-scrollbar {
+  display: none;
+}
+
+.inQueueList::-ms-scrollbar {
+  display: none;
+}
+
+.nextInQueue:hover {
+  background-color: rgb(23, 29, 48);
+}
+
+.tabSelector {
+  transition: all 0.25s ease-in-out;
+}
+
+.tabSelector:active {
+  transform: scale(0.94);
+}
 
 .playFromInQueueBtn {
   background-color: black 2;
   opacity: 23%;
 }
 
-@tailwind utilities;
-
 #backFromMiniPlayer {
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
 }
 
 #backFromMiniPlayer:active {
@@ -17,7 +73,7 @@
 }
 
 #goToMiniPlayer {
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
 }
 
 #goToMiniPlayer:active {
@@ -25,14 +81,56 @@
 }
 
 .inactiveHeaderMini {
-  transition: all ease 0.4s;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
 }
 
 .activeHeaderMini {
-  transform: translate(ease-in);
+  opacity: 70;
+}
+
+.inactiveMini {
+  background-color: black;
+  color: white;
 }
 
 .activeMini {
   background-color: white;
   color: black;
+}
+
+#LyricsInMini {
+  font-family: 'Afacad', sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+
+#minimalPlayerPage{
+  object-fit: cover;
+  background-repeat: no-repeat;
+}
+
+/* animation  */
+
+#visibilityToggleMinimalBtn,
+#cardBtn,
+#lyricBtn,
+#OnMiniPlayerSidebar,
+#OnSuffleSong,
+#goToPreviousSong,
+#playPauseSong,
+#goToNextSong,
+#OnRepeatMusic {
+  transition: all 0.3s ease;
+}
+
+#visibilityToggleMinimalBtn:active,
+#cardBtn:active,
+#lyricBtn:active,
+#OnMiniPlayerSidebar:active,
+#OnSuffleSong:active,
+#goToPreviousSong:active,
+#playPauseSong:active,
+#goToNextSong:active,
+#OnRepeatMusic:active {
+  transform: scale(0.9);
 }
